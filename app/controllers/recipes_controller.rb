@@ -18,14 +18,22 @@ class RecipesController < ApplicationController
 	def create
 		@recipe = Recipe.create(recipe_params)
 		respond_to do |format|
-			if @recipe.save
-				format.html { redirect_to recipes_url }
-				format.js
-				format.json { render action: 'show', status: :created, location: @recipe }
-			else
-				format.html {render action: 'new' }
-				# format.json { render json: @recipe.errors, status :unprocessable_entity }
-			end
+			format.js { render :create }
+			# format.js do
+			# 	if @recipe.valid?
+			# 	else
+			# 	end
+			# end
+
+			# if @recipe.save
+			# 	format.html { redirect_to recipes_url }
+			# 	format.js
+			# 	format.json { render action: 'show', status: :created, location: @recipe }
+			# 	redirect_to 'index'
+			# else
+			# 	format.html {render action: 'new' }
+			# 	# format.json { render json: @recipe.errors, status :unprocessable_entity }
+			# end
 		end
 	end
 

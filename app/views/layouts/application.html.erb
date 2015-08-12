@@ -8,8 +8,16 @@
 
 </head>
 <body>
+	<div class="top-menu col-lg-offset-8">
+		<%= link_to "Back to all recipes", root_path, class: "btn btn-primary back-button" %>
+		<%= link_to new_recipe_path, remote: true do %>
+			<button class="btn btn-default">New</button>
+		<% end %>	
+	</div>
+</div>
  
 <%= yield %>
+<br/>
 
 </body>
 </html>
